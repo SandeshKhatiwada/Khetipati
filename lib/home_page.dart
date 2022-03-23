@@ -75,81 +75,75 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(top: 40, left: 25, right: 25),
               child: Column(
                 children: [
-                  Container(
-                    height: 170,
-                    width: 350,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.white,
-                    ),
-
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(top: 35, left: 20),
-                              child: Text("30% Off", 
-                              style: TextStyle(
-                                fontSize: 23,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.green,
-                              ),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Text("On all Veggies",
+                  InkWell(
+                    onTap: (){
+                      Navigator.pushNamed(context, "offer");
+                    },
+                    child: Container(
+                      height: 170,
+                      width: 350,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: Colors.white,
+                      ),
+                  
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 35, left: 20),
+                                child: Text("30% Off", 
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 23,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.green,
                                 ),
                                 ),
-                            ),
-                            SizedBox(height: 10),
-
-                          Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Text("Grab the offer before",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  // fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
-                                ),
-                            ),
-
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text("On all Veggies",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.green,
+                                  ),
+                                  ),
+                              ),
+                              SizedBox(height: 10),
+                  
                             Padding(
-                              padding: const EdgeInsets.only(left: 20),
-                              child: Text("it's gone",
-                                style: TextStyle(
-                                  fontSize: 12,
-                                  // fontWeight: FontWeight.bold,
-                                  color: Colors.grey,
-                                ),
-                                ),
-                            ),
-
-                          ],
-                        ),
-                       ClipRRect(
-                         borderRadius: BorderRadius.only(
-                          topRight: const Radius.circular(20),
-                          bottomRight: const Radius.circular(20),
-                          topLeft: const Radius.circular(130),
-                          bottomLeft: const Radius.circular(50),
-                      
-                     ),
-                         child: Image(image: AssetImage("assets/vg.png"),
-                         height: 170,
-                         width: 180,
-                         fit: BoxFit.cover,
-                         ),
-                       )
-                      ],
+                                padding: const EdgeInsets.only(left: 20),
+                                child: Text("Grab the offer before\nit's gone",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    // fontWeight: FontWeight.bold,
+                                    color: Colors.grey,
+                                  ),
+                                  ),
+                              ),
+                  
+                            ],
+                          ),
+                         ClipRRect(
+                           borderRadius: BorderRadius.only(
+                            topRight: const Radius.circular(20),
+                            bottomRight: const Radius.circular(20),
+                            topLeft: const Radius.circular(130),
+                            bottomLeft: const Radius.circular(50),
+                        
+                       ),
+                           child: Image(image: AssetImage("assets/vg.png"),
+                           height: 170,
+                           width: 180,
+                           fit: BoxFit.cover,
+                           ),
+                         )
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -1522,14 +1516,23 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.home, size:30.0),
-                Icon(Icons.local_grocery_store, size:30.0),
-                SizedBox.shrink(),
-                Icon(Icons.notifications, size:30.0),
+                IconButton (onPressed: (){               
+                  Navigator.pushNamed(context, "home");
+                }, icon: Icon(Icons.home, size: 30,)),
+
                 IconButton (onPressed: (){
+                  Navigator.pushNamed(context, "orders");
+                }, icon: Icon(Icons.local_grocery_store, size:30)),
+
+                SizedBox.shrink(),
                 
+                IconButton (onPressed: (){                
+                  Navigator.pushNamed(context, "notifications");
+                }, icon: Icon(Icons.notifications, size:30)),
+
+                IconButton (onPressed: (){               
                   Navigator.pushNamed(context, "profile");
-                }, icon: Icon(Icons.person)),
+                }, icon: Icon(Icons.person, size:30)),
               ],
             ),
           ),
