@@ -454,13 +454,20 @@ class ProfilePage extends StatelessWidget {
               children: [
                 IconButton(onPressed: (){
                   Navigator.pushReplacementNamed(context, "home");
-                 
-                }, icon: Icon(Icons.home, size: 30,)),
-                Icon(Icons.local_grocery_store, size:30.0),
+                  }, icon: Icon(Icons.home, size: 30,)),
+                
+                IconButton (onPressed: (){
+                  Navigator.pushNamed(context, "orders");
+                }, icon: Icon(Icons.local_grocery_store, size:30)),
+
                 SizedBox.shrink(),
-                Icon(Icons.notifications, size:30.0),
-                IconButton(onPressed: (){
-                 
+
+                IconButton (onPressed: (){
+                  Navigator.pushNamed(context, "notifications");
+                }, icon: Icon(Icons.notifications, size:30)),
+                
+                IconButton (onPressed: (){
+                     Navigator.pushNamed(context, "profile");
                 }, icon: Icon(Icons.person, size: 30,)),
               ],
             ),
@@ -480,7 +487,9 @@ class ProfilePage extends StatelessWidget {
           borderRadius: BorderRadius.circular(50)
           ),
           // color: Colors.green,
-          child: FloatingActionButton(onPressed: (){},
+          child: FloatingActionButton(onPressed: (){
+             Navigator.pushNamed(context, "carts");
+          },
              
           backgroundColor: Colors.white,
           child:const Icon(Icons.shopping_cart, color: Colors.black,) ,
