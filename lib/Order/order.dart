@@ -1,6 +1,12 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Order/all_order.dart';
+import 'package:flutter_application_1/Order/pending.dart';
+import 'package:flutter_application_1/Order/process.dart';
+import 'all_order.dart';
+import 'delivered.dart';
+import 'pending.dart';
+import 'process.dart';
 
 class Orders extends StatefulWidget {
   const Orders({ Key? key }) : super(key: key);
@@ -10,6 +16,7 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,18 +54,38 @@ class _OrdersState extends State<Orders> {
                     alignment: Alignment.topCenter,
                     child: DefaultTabController(
                       length: 4,
-                      child: TabBar(
-                        labelStyle: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            TabBar(
+                              labelStyle: TextStyle(
+                                fontSize: 11,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              labelColor: Colors.green,
+                              tabs: [
+                             Tab(text: "All orders"), 
+                             Tab(text: "Deliverd"),
+                             Tab(text: "Pending"),
+                              Tab(text: "Process"),
+                            ],
+                            ),
+                            Container(height: 450,
+                              child: Expanded(
+                                child: TabBarView(children: [
+                                  AllOrder(),
+                              
+                                  Delivered(),
+                                 
+                                  Pending(),
+                              
+                                  Process(),
+                                  
+                                ]),
+                              ),
+                            )
+                          ],
                         ),
-                        labelColor: Colors.green,
-                        tabs: [
-                       Tab(text: "All orders"), 
-                       Tab(text: "Deliverd"),
-                       Tab(text: "Pending"),
-                        Tab(text: "Process"),
-                      ],
                       ),
                     ),
                     decoration: BoxDecoration(
@@ -67,7 +94,6 @@ class _OrdersState extends State<Orders> {
                     ),
                     height: 500,
                   ),
-
                   SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -455,7 +481,9 @@ class _OrdersState extends State<Orders> {
           borderRadius: BorderRadius.circular(50)
           ),
           // color: Colors.green,
-          child: FloatingActionButton(onPressed: (){},
+          child: FloatingActionButton(onPressed: (){
+             Navigator.pushNamed(context, "carts");
+          },
              
           backgroundColor: Colors.white,
           child:const Icon(Icons.shopping_cart, color: Colors.black,) ,
@@ -465,6 +493,8 @@ class _OrdersState extends State<Orders> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      
     );
   }
 }
+

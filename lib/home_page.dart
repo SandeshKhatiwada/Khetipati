@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -1503,11 +1501,6 @@ class _HomePageState extends State<HomePage> {
           ),
       ),  
 
-       
-     
-
-      
-
       bottomNavigationBar: BottomAppBar(
         child: Container(
           height: 60,
@@ -1551,7 +1544,9 @@ class _HomePageState extends State<HomePage> {
           borderRadius: BorderRadius.circular(50)
           ),
           // color: Colors.green,
-          child: FloatingActionButton(onPressed: (){},
+          child: FloatingActionButton(onPressed: (){
+            Navigator.pushNamed(context, "carts");
+          },
              
           backgroundColor: Colors.white,
           child:const Icon(Icons.shopping_cart, color: Colors.black,) ,

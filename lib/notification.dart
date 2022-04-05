@@ -323,7 +323,9 @@ class Notifications extends StatelessWidget {
           borderRadius: BorderRadius.circular(50)
           ),
           // color: Colors.green,
-          child: FloatingActionButton(onPressed: (){},
+          child: FloatingActionButton(onPressed: (){
+             Navigator.pushNamed(context, "carts");
+          },
              
           backgroundColor: Colors.white,
           child:const Icon(Icons.shopping_cart, color: Colors.black,) ,
